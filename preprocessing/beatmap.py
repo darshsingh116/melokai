@@ -266,10 +266,20 @@ def split_slider(slider_data: str, slider_duration_acc_to_len: float):
     # Parse slider_data
     parts = slider_data.split(',')
     path_data = parts[5][2:]
+    repeat = int(parts[6])
 
     start_point = tuple(map(int, parts[:2]))
     # Calculate path points
     path_points = [start_point] + [tuple(map(int, p.split(':'))) for p in path_data.split('|')]
+    new_path = []
+    for i in range(repeat):
+        if i == 0:
+            new_path += path_points
+        elif i % 2 == 1:
+            new_path += path_points[-2::-1]
+        else:
+            new_path += path_points[1:]
+    path_points = new_path
 
     hitobject = [int(parts[0]),int(parts[1]),int(parts[2]),int(int(parts[2])+slider_duration_acc_to_len),path_points]
     return hitobject

@@ -168,3 +168,5 @@ cython_debug/
 /model-processed-data
 
 .env
+melokai.zip
+/processed-beatmaps-backup

@@ -170,5 +170,5 @@ def circle_arc_length(x1, y1, x2, y2, x3, y3):
     return arc_length
 
 
-def processSpinner(temp, beatlen, starttime, SliderMultiplier):
+# def processSpinner(temp, beatlen, starttime, SliderMultiplier):
     
